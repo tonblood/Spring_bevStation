@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Member</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css" integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css" integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
+<link th:href="@{/style/style.css}" rel="stylesheet">
+
+</head>
+
+<body>
+    <div align="center">
+        <h1> User Information</h1>
+      
+    </div>
+    
+   <div class="container"> 
+    <div class="row">
+        <div class="col-lg-10 mt-5 mb-5">
+            <table id="example" class="table table-hover" style="width: 100%">     
+           <!--- This is a comment !-->
+                <thead class="head-dark"  >
+                    <tr class="table-primary">
+                        <th scope="col">ชื่อจริง</th>
+                        <th scope="col">นามสกุล</th>
+                        <th scope="col">เพศ</th>
+                        <th scope="col">เบอร์โทรศัพท์ </th>
+                        <th scope="col">ระดับสมาชิก</th>
+                        <th scope="col">แก้ไขข้อมูล</th>
+                        <th scope="col">ลบข้อมูล</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr scope="row", th:each="user : ${users}">
+                    <td   th:text="${user.fname}"></td>
+                    <td   th:text="${user.lname}"></td>
+                    <td  th:text="${user.sex}"></td>
+                    <td   th:text="${user.tel}"></td>
+                    <td   th:text="${user.levelmember.levmem}"></td>
+                    <td ><a th:href="@{/edit/member/{id}(id=${user.id})}">แก้ไข</a></td>
+                    <td><a th:href="@{/delete/member/{id}(id=${user.id})}">ลบ</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>    
+    </div>  
+    </div>    
+    <a href="/register" class="btn btn-success" role="button">Add a new user</a>
+    <a href="/" class="btn btn-info" role="button">Back</a>
+ 
+</body>
+</html>

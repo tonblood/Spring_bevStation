@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>product management using Jpa,Hiberante</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css" integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css" integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div align="center">
+        <h1> product Information</h1>
+      
+    </div>
+    
+   <div class="container"> 
+    <div class="row">
+        <div class="col-lg-10 mt-5 mb-5">
+            <table id="example" class="table table-hover" style="width: 100%">     
+           <!--- This is a comment !-->
+                <thead class="head-dark"  >
+                    <tr class="table-primary">
+                    <th scope="col">รหัสสินค้า</th>
+                        <th scope="col">ช่ื่อสินค้า</th>
+                        <th scope="col">ประเภทสินค้า</th>
+                        <th scope="col">จำนวนคงเหลือ </th>
+                        <th scope="col">ราคา</th>
+                        <th scope="col">แก้ไข</th>
+                        <th scope="col">ลบ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr scope="row", th:each="product : ${product}">
+                <td   th:text="${product.pid}"></td>
+                    <td   th:text="${product.pname}"></td>
+                    <td  th:text="${product.ptype}"></td>
+                    <td   th:text="${product.amount}"></td>
+                   <td   th:text="${product.price}"></td> 
+                    <td ><a th:href="@{/edit/product/{id}(id=${product.pid})}">แก้ไข</a></td>
+                    <td><a th:href="@{/delete/product/{id}(id=${product.pid})}">ลบ</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>    
+    </div>  
+    </div>
+    <a href="/createproduct" class="btn btn-success" role="button">Add a new product</a>
+    <a href="/" class="btn btn-info" role="button">Back</a>
+ 
+</body>
+</html>

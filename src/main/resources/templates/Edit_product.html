@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css"
+        integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK" crossorigin="anonymous">
+    <style type="text/css">
+    body{
+      font-family: 'Kanit', sans-serif;
+    }
+        label {
+            display: inline-block;
+            width: 200px;
+            margin: 5px;
+            text-align: left;
+        }
+
+        input[type=text],
+        input[type=password],
+        select {
+            display: inline-block;
+            width: 200px;
+        }
+
+        input[type=checkbox] {
+            margin-right: 190px;
+        }
+
+        button {
+            padding: 5px;
+            margin: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css"
+        integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet'
+        type='text/css'>
+    <title> updateproductdata</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+
+<body>
+    <div class="large_box" align=center>
+        <div class="card text-white bg-primary mb-3" style=" margin-bottom: 1.5em; padding: 1em;">
+            <div class="header">
+                <h1>แก้ไขข้อมูลสินค้า</h1>
+            </div>
+        </div>
+
+        <form action="#" th:action="@{/update/product/{pid}(pid=${product.pid})}" th:object="${product}" method="post">
+            <label for="name" class="form-label mt-4" th:text="'รหัสสินค้า:     '+ *{pid}" ></label>
+            <br>
+            <label for="name" class="form-label mt-4">ชื่อสินค้า :</label>
+            <input type="text" class="form-control" th:field="*{pname}" id="pname" placeholder="น้ำยาล้างจาน">
+            <span th:if="${#fields.hasErrors('pname')}" th:errors="*{pname}"></span>
+
+            <br>
+            <label class="form-label mt-4">ประเภทสินค้า</label>
+            <input type="text" class="form-control" th:field="*{ptype}" id="ptype" placeholder="เครื่องใช้">
+            <span th:if="${#fields.hasErrors('ptype')}" th:errors="*{ptype}"></span>
+            <br>
+            <label class="form-label mt-4">จำนวน</label>
+            <input type="text" class="form-control" th:field="*{amount}" id="ptype" placeholder="50">
+            <span th:if="${#fields.hasErrors('ptype')}" th:errors="*{amount}"></span>
+            <br>
+            <label class="form-label mt-4">ราคา</label>
+            <input type="text" class="form-control" th:field="*{price}" id="ptype" placeholder="30.25">
+            <span th:if="${#fields.hasErrors('ptype')}" th:errors="*{price}"></span>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary">ยืนยันข้อมูล</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

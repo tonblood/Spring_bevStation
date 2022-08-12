@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css" integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css" integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
+<title> Register Member</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+    body {
+		  font-family: 'Kanit', sans-serif;
+		}
+    label {
+        display: inline-block;
+        width: 200px;
+        margin: 5px;
+        text-align: left;
+    }
+    .ss{
+        text-align: auto;
+    }
+</style>
+</head>
+  
+<body>
+
+<body>
+   <div class = "large_box" align = center>
+        <div class="card text-white bg-primary mb-3"  style=" margin-bottom: 1.5em; padding: 1em;">
+        <div class="header"><h1>เพิ่มสมาชิก</h1></div>
+    </div>
+    <div align="center">
+        <form action="#" th:action="@{/register}" method="post", th:object="${user}">
+            <div class="form-group">
+                <label>ชื่อจริง:</label>
+                <input type="text" th:field="*{fname}" /><br>
+            </div>
+            
+
+            <div class="form-group">
+                <label>นามสกุล:</label>
+                <input type="text" th:field="*{lname}"/><br>
+            </div>
+            <fieldset class="form-group">
+              <div class="card bg-light mb-3" style="max-width: 28em;">
+              <label for="exampleInputEmail1"><p>เพศ</p> </label>
+              <div class="form-check" style="padding-left: 16em;">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optionsRadios" th:field="*{sex}" id="1" value="male" checked="">
+                  ชาย
+                </label>
+              </div>
+              <div class="form-check" style="padding-left: 16em;">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optionsRadios" th:field="*{sex}" id="2" value="female">
+                  หญิง
+                </label>
+              </div>
+            </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <div class="card bg-light mb-3" style="max-width: 28em;">
+                <label for="exampleInputEmail1">ระดับสมาชิก</label>
+              <div class="form-check" style="padding-left: 16em;">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optionsRadios" th:field="*{levelmember.levmem}" id="1" value="silver Member" checked="">
+                  silver Member
+                </label>
+              </div>
+              <div class="form-check" style="padding-left: 16em;">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optionsRadios" th:field="*{levelmember.levmem}" id="2" value="Gold Member" >
+                  Gold Member
+                </label>
+              </div>
+              <div class="form-check" style="padding-left: 16em;">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optionsRadios" th:field="*{levelmember.levmem}" id="3" value="Platinum Member" >
+                  Platinum Member
+                </label>
+              </div>
+            </div>
+            </fieldset>
+        
+            
+            <div class="form-group">
+                <label>เบอร์โทรศัพท์</label>
+                <input type="text" th:field="*{tel}"/><br>
+            
+            </div>
+
+            <button type="submit" class="btn btn-success">สมัครสมาชิกลูกค้า</button>
+        </form>
+    </div>
+   
+   
+   </body>
+</html>

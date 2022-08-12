@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>  
+    <title>Add new product</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css" integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
+<style type="text/css">
+    body {
+		  font-family: 'Kanit', sans-serif;
+		}
+    label {
+        display: inline-block;
+        width: 200px;
+        margin: 5px;
+        text-align: left;
+    }
+    .ss{
+        text-align: auto;
+    }
+</style>
+<title> เพิ่มสินค้า</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div class = "large_box" align = center>
+        <div class="card text-white bg-primary mb-3"  style=" margin-bottom: 1.5em; padding: 1em;">
+        <div class="header"><h1>เพิ่มสินค้า</h1></div>
+    </div>
+    <div align="center">
+        <form action="#" th:action="@{/createproduct}" method="post", th:object="${product}">
+            <div class="form-group">
+                <label>ชื่อสินค้า:</label>
+                <input type="text" th:field="*{pname}" /><br>
+            </div>
+            
+
+            <div class="form-group">
+                <label>ประเภทสินค้า:</label>
+                <input type="text" th:field="*{ptype}"/><br>
+            </div>
+            
+            <div class="form-group">
+                <label>จำนวน:</label>
+                <input type="text" th:field="*{amount}"/><br>
+            </div>
+            
+            <div class="form-group">
+                <label>ราคาสินค้า:</label>
+                <input type="text" th:field="*{price}"/><br>
+            
+            </div>
+
+            <button type="submit" class="btn btn-success">เพิ่มสินค้า</button>
+        </form>
+    </div>
+   
+   
+   </body>
+</html>
